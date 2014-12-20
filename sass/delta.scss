@@ -1,0 +1,156 @@
+/* ----------------------------------------------------
+=DELTA MENU
+---------------------------------------------------- */
+
+// /* config --------------------------------------- */
+$top-link-padding: .5em;
+$submenu-width:    10em;
+// /* /config -------------------------------------- */
+
+
+
+/* base -------------------------------------------- */
+.delta,
+.delta--sub {
+	margin: 0;
+	padding: 0;
+}
+
+.delta {
+	width: 100%;
+
+	&:after {
+		content: '';
+		clear: both;
+		display: block;
+		height: 0;
+		margin: 0;
+		padding: 0;
+		width: 100%;
+	}
+}
+
+.delta__item {
+	border-bottom: 1px solid #333;
+	list-style: none;
+}
+
+.delta__link {
+	display: block;
+	text-decoration: none;
+	padding: $top-link-padding 0;
+}
+/* /base ------------------------------------------- */
+
+
+
+/* submenu ----------------------------------------- */
+.delta--sub {
+	display: none;
+
+	.delta__item:hover > & {
+		display: block;
+	}
+
+	.delta--sub {
+		top: 0;
+		left: 100%;
+	}
+}
+/* /submenu ---------------------------------------- */
+
+
+
+/* megamenu ---------------------------------------- */
+.delta__mega {
+	display: none;
+	
+	.delta__item:hover > &,
+	.delta__item:hover > & > .delta--sub {
+		display: block;
+	}
+
+	.delta--sub {
+		position: relative;
+	}
+}
+/* /megamenu --------------------------------------- */
+
+
+
+/* media queries ----------------------------------- */
+/* screen size >= 768px */
+@media screen and (min-width: 768px) {
+
+	.delta,
+	.delta__item {
+		position: relative;
+	}
+
+	.delta__item--mega {
+		position: static;
+	}
+
+	.delta__item {
+		border-bottom: 0;
+
+		.delta > & {
+			float: left;
+
+			&:first-child {
+				.delta__text {
+					border: 0;
+				}		
+			}
+		}
+
+		.delta__text {
+			border-left: 1px solid #000;
+			padding: 0 1em;
+		}
+
+		& .delta__item .delta__text {
+			border: 0;
+			padding: 0;
+		}
+	}
+	
+	.delta--sub,
+	.delta__mega {
+		display: none;
+		position: absolute;
+		top: 100%;
+		z-index: 100;
+		width: 100%;
+	}
+
+	.delta--sub {
+		width: $submenu-width;
+	}
+
+	.delta__mega {
+		left: 0;
+
+		.delta--sub {
+			float: left;
+		}
+	}
+
+	.delta__mega--half .delta--sub {
+		width: (100% / 2);
+	}
+
+	.delta__mega--third .delta--sub {
+		width: (100% / 3);
+	}
+
+	.delta__mega--quarter .delta--sub {
+		width: (100% / 4);
+	}
+
+	.delta__mega--fifth .delta--sub {
+		width: (100% / 5);
+	}
+
+}
+/* /media queries ---------------------------------- */

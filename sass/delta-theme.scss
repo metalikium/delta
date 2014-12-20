@@ -1,0 +1,47 @@
+/* ----------------------------------------------------
+=DELTA THEME
+---------------------------------------------------- */
+
+.delta {
+	background-color: #f0f0f0;
+	border-radius: 7px;
+	padding: 0 1em;
+}
+
+.delta__link {
+	color: #333;
+	border-top: 1px solid #ccc;
+
+	&:hover {
+		background-color: #fefefe;
+	}
+}
+
+.delta > .delta__item > .delta__link {
+	border-top: 0;
+	font-size: .9em;
+	font-weight: bold;
+	text-transform: uppercase;
+	padding: {
+		top: 1em;
+		bottom: 1em;
+	};
+
+	&:hover {
+		background-color: #f9f9f9;
+	}
+}
+
+.delta--sub,
+.delta__mega {
+	background-color: #f9f9f9;
+	padding: .5em;
+	
+	.delta__link {
+		border-top: 1px solid #ccc;
+	}
+
+	.delta__item:first-child .delta__link {
+		border: 0;
+	}
+}
